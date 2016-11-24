@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 // ng g c and-other --flat -is -it
 
@@ -15,14 +15,27 @@ let localShared = 0;
     <p>
       and-other Works! {{number}}
     </p>
+    <article>
+        <ng-content></ng-content>
+    </article>
   `,
-  styles: []
+  styles: [`
+    article {
+        border: 1px solid #111;
+        color: red;
+        /* ten styl ma wplyw na dzieci */
+    }
+    h2 {
+        font-family: Helvetica Zapfino serif; /* ten styl nie zadziala na zawartosc dzieci*/
+    }
+`]
 })
 export class AndOtherComponent implements OnInit {
 
-  public number : number;
+  public number: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.number = localShared;

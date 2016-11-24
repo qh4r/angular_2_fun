@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './app.test.component';
 import { OtherComponent } from './other/other.component';
 import { AndOtherComponent } from './and-other.component';
+import { StringFunComponent } from './string-fun/string-fun.component';
+import { DatabindingComponent } from './databinding/databinding.component';
 
 @NgModule({
   // jakie dyrykytywy i pipey wykorzystujemy
   declarations: [
-    AppComponent, TestComponent, OtherComponent, AndOtherComponent
+    AppComponent, TestComponent, OtherComponent, AndOtherComponent, StringFunComponent, DatabindingComponent
   ],
   // mowi jakie inne moduly na ktorych ten modul polega
   imports: [
