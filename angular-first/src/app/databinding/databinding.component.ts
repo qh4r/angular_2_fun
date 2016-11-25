@@ -16,6 +16,8 @@ import {Component, OnInit, Output, Input} from '@angular/core';
     <app-property-binding [result]="userInput" [bag]="'testy testy'"></app-property-binding>
     <!-- '' wewnatrz " to sposob na bezposrednie rpzekazanie wrtosci. bag tutaj przyslania diff - nie mozna uzywac diff -->
     <app-event-binding (clicked)="handleClic($event)"></app-event-binding>
+    
+    <app-2way-binding></app-2way-binding>
   `,
   // $event - to sposob na wyciagniecie danych z eventu
   // [] - property bindingi!
