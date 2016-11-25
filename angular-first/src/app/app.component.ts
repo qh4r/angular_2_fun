@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dziala!!';
+  present = false;
+  numToRise : number = 0;
+
+  toggleComponent(){
+    this.present = !this.present;
+  }
+
+  increment(){
+    this.numToRise++;
+  }
 }

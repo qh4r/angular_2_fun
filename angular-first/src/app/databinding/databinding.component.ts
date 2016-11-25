@@ -67,6 +67,7 @@ export class DatabindingComponent implements OnInit {
   constructor() {
   }
 
+  // wywoluje sie przy pierwszym inicie
   ngOnInit() {
   }
 

@@ -12,11 +12,12 @@ import { DatabindingComponent } from './databinding/databinding.component';
 import { PropertyBindingComponent } from './databinding/property-binding.component';
 import { EventBindingComponent } from './databinding/event-binding.component';
 import { TwoWayBindingComponent } from './databinding/twoWayBindingComponent.ts';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 @NgModule({
   // jakie dyrykytywy i pipey wykorzystujemy
   declarations: [
-    AppComponent, TestComponent, OtherComponent, AndOtherComponent, StringFunComponent, DatabindingComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent
+    AppComponent, TestComponent, OtherComponent, AndOtherComponent, StringFunComponent, DatabindingComponent, PropertyBindingComponent, EventBindingComponent, TwoWayBindingComponent, LifecycleComponent
   ],
   // mowi jakie inne moduly na ktorych ten modul polega
   imports: [

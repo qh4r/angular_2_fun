@@ -8,3 +8,12 @@
 
 z app
 <!--nie mozna uzyc pustego tagu-->
+
+<!-- *ngIf - powoduje ze dany komponent jest renderowany
+      tylko jeśli spełniony zostanie warunek podany w rhs
+        w tym wypadku present to boolean-->
+<app-lifecycle *ngIf="present" [num]="numToRise">
+  <p #injectedContent >he heszki ze srodka</p>
+</app-lifecycle>
+<button (click)="toggleComponent()">Toggle lifecycle item</button>
+<button (click)="increment()">W góre</button>
