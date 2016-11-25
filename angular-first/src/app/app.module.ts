@@ -9,11 +9,13 @@ import { OtherComponent } from './other/other.component';
 import { AndOtherComponent } from './and-other.component';
 import { StringFunComponent } from './string-fun/string-fun.component';
 import { DatabindingComponent } from './databinding/databinding.component';
+import { PropertyBindingComponent } from './databinding/property-binding.component';
+import { EventBindingComponent } from './databinding/event-binding.component';
 
 @NgModule({
   // jakie dyrykytywy i pipey wykorzystujemy
   declarations: [
-    AppComponent, TestComponent, OtherComponent, AndOtherComponent, StringFunComponent, DatabindingComponent
+    AppComponent, TestComponent, OtherComponent, AndOtherComponent, StringFunComponent, DatabindingComponent, PropertyBindingComponent, EventBindingComponent
   ],
   // mowi jakie inne moduly na ktorych ten modul polega
   imports: [
