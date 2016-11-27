@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Recipe} from './recipe';
 @Component({
   selector: 'cb-recipe-item',
@@ -6,11 +6,12 @@ import {Recipe} from './recipe';
 })
 export class RecipeItemComponent implements OnInit {
   recipeId : number;
-  recipe : Recipe;
+  @Input() recipe : Recipe;
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

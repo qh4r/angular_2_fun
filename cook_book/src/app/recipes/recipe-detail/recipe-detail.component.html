@@ -1,0 +1,28 @@
+<div *ngIf="selectedRecipe != null">
+  <div class="row">
+    <div class="col-xs 12">
+      <img src="#" alt="" class="img-responsive" src="{{selectedRecipe.imagePath}}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{selectedRecipe.name}}</h1>
+    </div>
+    <div class="col-xs-12">
+      <button class="btn btn-success">Do listy zakupów</button>
+      <button class="btn btn-primary">Edycja</button>
+      <button class="btn btn-danger">Usuń</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{{selectedRecipe.desc}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      Składniki
+    </div>
+  </div>
+</div>

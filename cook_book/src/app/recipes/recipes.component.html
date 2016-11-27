@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-md-5">
-    Lista Przepisów
+    <h2>Lista Przepisów:</h2>
+    <cb-recipe-list (recipeSelectionChanged)="recipeSelectionUpdate($event)"></cb-recipe-list>
   </div>
   <div class="col-md-5">
-    Detale Przepisu
+    <h2>Detale Przepisu</h2>
+    <cb-recipe-detail [selectedRecipe]="selectedRecipe"></cb-recipe-detail>
   </div>
 </div>

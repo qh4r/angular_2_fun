@@ -1,3 +1,14 @@
-<p>
-  recipe-list works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <a class="btn-success">
+      Nowy Przepis
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="list-group">
+        <cb-recipe-item *ngFor="let recipe of recepies" [recipe]="recipe" (click)="onSelected(recipe)" ></cb-recipe-item>
+      </div>
+    </div>
+  </div>
+</div>
