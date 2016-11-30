@@ -13,9 +13,39 @@
 </p>
 
 
-<h2>Custom atr directive></h2>
+<h2>Custom atr directive</h2>
 
-<p pgHighlight pgHoverHighlight>
+<p pgHighlight [pgHoverHighlight]="'red'">
   Combine celery, oysters and ghee. marinate with gooey marmalade and serve boilled with broccoli. Enjoy!
   For a diced slobbery smoothie, add some cocktail sauce and anise.Everyone just loves the creaminess of lettuce sauce tossd with rosemary.
 </p>
+
+<h2>If</h2>
+<p *ngIf="counter%2">
+  The transporter is more phenomenan now than collective. proud and quickly ancient.Dozens of alarms will be lost in beauties like modifications in paralysisRed alert, reliable ionic cannon!
+</p>
+<h2>for</h2>
+<ol>
+  <!--index to konwencja rozpoznawana przez angulara-->
+  <li *ngFor="let thing of things; let i = index">{{thing}} - index: {{i}}</li>
+</ol>
+
+<a href="#" (click)="onClick()" class="btn btn-info btn-lg">Zmiana</a>
+
+<h2>switch</h2>
+
+<div [ngSwitch]="counter * 10">
+  <p *ngSwitchCase="10">10 10 10</p>
+  <p *ngSwitchCase="30">30 30 30</p>
+  <p *ngSwitchCase="20">20 20 20</p>
+  <p *ngSwitchCase="20">other</p>
+  <p *ngSwitchDefault>dupa</p>
+  <!--default widoczne gdy inne nie spelnione-->
+</div>
+
+<h2>Tak naprawde ~ if</h2>
+  <!--za kulisami wyszstkie uzycia gwiazdki (*) angular przemienia na <template [cos]></template>-->
+<template [ngIf]="counter % 2">
+  <p>znikajacy tekst</p>
+</template>
+

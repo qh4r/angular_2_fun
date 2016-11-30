@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./directives.component.css']
 })
 export class DirectivesComponent implements OnInit {
-
+  things = ['siekiera', 'motyka', 'piłka', 'stonka']
   counter = 1;
 
   onClick() {
