@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { HoverHighlightDirective } from './directives/hover-highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     DirectivesComponent,
     HighlightDirective,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
