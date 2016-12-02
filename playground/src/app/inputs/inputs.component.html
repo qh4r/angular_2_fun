@@ -1,0 +1,11 @@
+<div class="row">
+  <form (submit)="onSubmit($event)" class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="text" id="note" [value]="note" (input)="onInput($event)" class="validate">
+        <label class="active" for="note">Notatka</label>
+      </div>
+      <button class="btn col s4 push-s7" type="submit">Dodaj</button>
+    </div>
+  </form>
+</div>

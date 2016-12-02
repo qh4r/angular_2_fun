@@ -1,0 +1,10 @@
+<div class="collection">
+  <div *ngFor="let note of notes" class="collection-item">
+    <div>
+      <span>{{note.text}}</span>
+      <a href="#!" class="secondary-content" (click)="onDelete(note)">
+        <i class="material-icons">delete</i>
+      </a>
+    </div>
+  </div>
+</div>

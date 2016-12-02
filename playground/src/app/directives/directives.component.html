@@ -1,6 +1,6 @@
 <h1>Dyrektywy</h1>
 
-<a href="#" (click)="onClick()" class="btn btn-info btn-lg">Zmiana</a>
+<a href="#" (click)="onClick()" class="btn amber lighten-2 waves-effect">Zmiana</a>
 
 <h2>class & style</h2>
 
@@ -10,6 +10,15 @@
 
 <p [ngStyle]="{backgroundColor: ['red', 'blue', 'green', 'yellow'][counter]}">
   Sunt ollaes amor teres, lotus lunaes.Cur uria mori?Cobaltums cadunt!Ubi est flavum adelphis?Naviss sunt guttuss de fortis lacta.Absolutios sunt classiss de velox domus.
+</p>
+
+<h2>DEMO:</h2>
+<p>
+  demonstracja dzialania operatora + w css
+</p>
+<p> <!-- przy okazji demonstracja escapowania {} -->
+  ten paragraf dzieki p+p{{'{color:red}'}} bedzie zzerwony
+  + sprawia ze 'lapany' jest drugi z sasiednich elementow
 </p>
 
 
@@ -30,7 +39,7 @@
   <li *ngFor="let thing of things; let i = index">{{thing}} - index: {{i}}</li>
 </ol>
 
-<a href="#" (click)="onClick()" class="btn btn-info btn-lg">Zmiana</a>
+<a href="#" (click)="onClick()" class="btn blue accent-2 btn-large waves-effect waves-light">Zmiana</a>
 
 <h2>switch</h2>
 

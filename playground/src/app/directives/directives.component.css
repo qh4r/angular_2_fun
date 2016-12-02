@@ -6,3 +6,7 @@
 .green {
   color: #9cff79;
 }
+
+p+p{
+  color: red;
+}
