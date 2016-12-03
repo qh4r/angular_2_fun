@@ -14,7 +14,7 @@ export class DataStoreService {
 
 
   // prostsze rozwiazanie to uzycie eventEmmitera ale to bad practice
-  // wtedy robimy emit i subscribe po drugiej stronie na EventEmmiterze
+  // wtedy robimy emit i subscribgit e po drugiej stronie na EventEmmiterze
   noteWatch$: Observable<Note[]>;
   // _observer: Observer<Note[]>;
 

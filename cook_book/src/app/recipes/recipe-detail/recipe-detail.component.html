@@ -9,7 +9,7 @@
       <h1>{{selectedRecipe.name}}</h1>
     </div>
     <div class="col-xs-12">
-      <button class="btn btn-success">Do listy zakupów</button>
+      <button class="btn btn-success" (click)="onAddToShoppingList(selectedRecipe.ingredients)">Do listy zakupów</button>
       <button class="btn btn-primary">Edycja</button>
       <button class="btn btn-danger">Usuń</button>
     </div>

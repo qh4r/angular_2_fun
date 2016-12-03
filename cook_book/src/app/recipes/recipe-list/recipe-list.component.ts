@@ -1,6 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Recipe} from './recipe';
-import {Ingredient} from '../../ingredient';
+import {RecipesService} from '../recipes.service';
 
 @Component({
   selector: 'cb-recipe-list',
@@ -8,21 +8,17 @@ import {Ingredient} from '../../ingredient';
 })
 export class RecipeListComponent implements OnInit {
   @Output() recipeSelectionChanged = new EventEmitter<Recipe>();
-  recepies: Array<Recipe> = [];
+  recipes: Array<Recipe> = [];
 
-  constructor() {
+  constructor(private recipesService: RecipesService) {
   }
 
   ngOnInit() {
-    this.recepies.push(new Recipe("test", "pierwszy przepis", "#", [
-      new Ingredient('pietruszka', 100),
-      new Ingredient('rzepa', 100),
-      new Ingredient('marchew', 100)
-    ]));
-    this.recepies.push(new Recipe("test2", "drugi przepis", "#", [
-      new Ingredient('kurczak', 20),
-      new Ingredient('jarmusz', 80)
-    ]));
+    this.recipesService.recipesStream.subscribe(recipes => {
+      this.recipes = recipes;
+      console.log(recipes);
+    });
+    console.log('list initialized');
   }
 
   onSelected(recipe: Recipe) {
