@@ -10,8 +10,7 @@ import {HoverHighlightDirective} from './directives/hover-highlight.directive';
 import {UnlessDirective} from './directives/unless.directive';
 import {ListComponent} from './list/list.component';
 import {InputsComponent} from './inputs/inputs.component';
-import {LogService} from './log.service';
-import {DataStoreService} from './data-store.service';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +27,7 @@ import {DataStoreService} from './data-store.service';
     FormsModule,
     HttpModule
   ],
-  providers: [LogService, DataStoreService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,14 +2,19 @@
 // lepsze wyjscie
 import {Observable, BehaviorSubject} from 'rxjs';
 import {Note} from './note';
-import 'rxjs/add/operator/share';
+// import 'rxjs/add/operator/share';
 import {LogService} from './log.service';
 import {Injectable} from "@angular/core";
 
+// injectable jest konieczne by dalo sie tu wstrzyknac inne serwisy
+// w tym wypadku LogService
 @Injectable()
 export class DataStoreService {
   private notes: Note[] = [];
 
+
+  // prostsze rozwiazanie to uzycie eventEmmitera ale to bad practice
+  // wtedy robimy emit i subscribe po drugiej stronie na EventEmmiterze
   noteWatch$: Observable<Note[]>;
   // _observer: Observer<Note[]>;
 
@@ -45,43 +50,3 @@ export class DataStoreService {
   }
 }
 
-
-// import {Injectable} from '@angular/core';
-// import {Note} from './note';
-// import 'rxjs/add/operator/share';
-// import {LogService} from './log.service';
-//
-// @Injectable()
-// export class DataStoreService {
-//   private notes: Note[] = [];
-//
-//   notesBehavior = new BehaviorSubject<Note>(new Note(''));
-//   noteWatch$ = this.notesBehavior.asObservable();
-//
-//   get notesList() {
-//     return this.notes;
-//   }
-//
-//   addNote(note: Note) {
-//     this.logService.writeToLog(`dodano notatke ${note.text}`);
-//     this.notes = [note, ...this.notes];
-//     this.notifyChange(note);
-//   }
-//
-//   removeNote(note: Note) {
-//     this.logService.writeToLog(`usunieto notatke ${note.text}`);
-//     this.notes = this.notes.filter(n => n != note);
-//     this.notifyChange(note);
-//   }
-//
-//   notifyChange(note: Note) {
-//     console.log('watch', this.noteWatch$);
-//     console.log('notes', this.notes, this.notesList);
-//     // this._observer.next(note)
-//     this.notesBehavior.next(note);
-//   }
-//
-//   constructor(private logService: LogService) {
-//     this.logService.writeToLog('zainicjalizowano data store');
-//   }
-// }

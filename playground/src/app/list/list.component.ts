@@ -3,6 +3,10 @@ import {LogService} from '../log.service';
 import {Note} from '../note';
 import {DataStoreService} from '../data-store.service';
 
+
+// providery sa tworzone dla danego komponentu jako osobne instancje
+// + dodatkowo sa dziedziczone jako  singletone
+// swego rodzaju dla komponentow urzytych wewnatrz danego komponentu lub modułu
 @Component({
   selector: 'pg-list',
   templateUrl: './list.component.html',
