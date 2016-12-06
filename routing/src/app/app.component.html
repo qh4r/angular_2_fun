@@ -3,8 +3,12 @@
     <div class="col-xs-10">
       <h1>APP!!!</h1>
       <hr>
-      <a [routerLink]="['']" class="btn btn-info">START</a>
-      <a [routerLink]="['user']" class="btn btn-info">UŻYTKOWNIK</a>
+      <a [routerLink]="['/']" class="btn btn-info">START</a> |
+      <!--userId.value odnosi sie do value na inpucie do id userId-->
+      <a [routerLink]="['/user', userId.value]" class="btn btn-info">UŻYTKOWNIK</a>
+      <!--#id - nadaje id komponentowi-->
+      <!--input=0 gwarantuje odswiezanie bindingu-->
+      id: <input type="text" #userId (input)="0"> |
       <hr>
       <!-- w tkai sposob deklarujemy miejsce gdzie bedzie renderowal -->
       <router-outlet></router-outlet>

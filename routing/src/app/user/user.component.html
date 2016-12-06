@@ -1,3 +1,5 @@
-<p>
-  user works!
-</p>
+<h1>Uzytkownik</h1>
+<a [routerLink]="['/user', selectedId]">Użytkownik</a>
+<!--uzywac routerLink mozna tylko w anchorze-->
+<h2>id: {{selectedId}}</h2>
+<button (click)="onNavigate()">Do dom</button>

@@ -3,7 +3,7 @@ import {HomeComponent} from "./home.component";
 import {UserComponent} from "./user/user.component";
 
 const APP_ROUTES: Routes = [
-  {path: 'user', component: UserComponent},
+  {path: 'user/:id', component: UserComponent},
   {path: '', component: HomeComponent}
 ];
 
