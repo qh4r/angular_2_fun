@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.querySubscription.unsubscribe();
   }
 
+  // tak samo jak paramsy mozna wyciagac fragmenty (#costam) z urli
   ngOnInit() {
     this.querySubscription = this.activeRoute.queryParams
       .subscribe((params : any) => {this.msg = params['notSecret']});

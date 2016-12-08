@@ -3,9 +3,17 @@
     <div class="col-xs-10">
       <h1>APP!!!</h1>
       <hr>
-      <a [routerLink]="['/']" class="btn btn-info">START</a> |
+      <!-- queryParams - wiadomo, fragment to  sekcja po haszu ~ #dupa -->
+      <!-- preserveQueryParams sprawia ze po przenawiganiu przez dany link paramsy pozostana bez zmian -->
+      <a [routerLink]="['/']" [queryParams]="{test: 1337}" [fragment]="'dupa'" class="btn btn-info"
+         routerLinkActive="koloruj" [routerLinkActiveOptions]="{exact: true}">START</a> |
+      <!-- jesli nie dodamy exact true to zawsze gdy spelnione bedzie / - czyli zawsze - link bedzie widnial jako aktywny -->
+
       <!--userId.value odnosi sie do value na inpucie do id userId-->
-      <a [routerLink]="['/user', userId.value]" class="btn btn-info">UŻYTKOWNIK</a>
+      <a [routerLink]="['user', userId.value]" [preserveQueryParams]="true" class="btn btn-info" routerLinkActive="koloruj">UŻYTKOWNIK</a>
+      <!--^ ROUTE LINK ACTIVE PRZYJMUJE KLASE ktora bedzie aktywna gdy link bedzie aktywny-->
+
+
       <!--#id - nadaje id komponentowi-->
       <!--input=0 gwarantuje odswiezanie bindingu-->
       id: <input type="text" #userId (input)="0"> |

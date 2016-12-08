@@ -3,3 +3,9 @@
 <!--uzywac routerLink mozna tylko w anchorze-->
 <h2>id: {{selectedId}}</h2>
 <button (click)="onNavigate()">Do dom</button>
+<div *ngIf="selectedId">
+  <a [routerLink]="['edit']" class="btn">Edycja</a>
+  <a [routerLink]="['detail']" class="btn">Detale</a>
+</div>
+<router-outlet></router-outlet>
+
