@@ -1,27 +1,30 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, OnDestroy} from '@angular/core';
 import {Recipe} from './recipe';
 import {RecipesService} from '../recipes.service';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'cb-recipe-list',
   templateUrl: './recipe-list.component.html',
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
+
   @Output() recipeSelectionChanged = new EventEmitter<Recipe>();
   recipes: Array<Recipe> = [];
+  private recipesSubscription : Subscription;
 
   constructor(private recipesService: RecipesService) {
   }
 
   ngOnInit() {
-    this.recipesService.recipesStream.subscribe(recipes => {
+    this.recipesSubscription = this.recipesService.recipesStream.subscribe(recipes => {
       this.recipes = recipes;
       console.log(recipes);
     });
     console.log('list initialized');
   }
 
-  onSelected(recipe: Recipe) {
-    this.recipeSelectionChanged.emit(recipe);
+  ngOnDestroy(): void {
+    this.recipesSubscription.unsubscribe();
   }
 }

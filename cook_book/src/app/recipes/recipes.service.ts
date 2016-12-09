@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Recipe} from './recipe-list/recipe';
 import {Observable, Observer} from 'rxjs';
 import {Ingredient} from '../ingredient';
+import {Router} from "@angular/router";
 
 @Injectable()
 export class RecipesService {
@@ -19,12 +20,25 @@ export class RecipesService {
     return this.recipes;
   }
 
-  private recipesChanged() {
-    console.log('update');
-    this.observer.next(this.recipes);
+  getRecipe(index: number) : Recipe {
+    return this.recipes && this.recipes.length && this.recipes[index]
   }
 
-  constructor() {
+  deleteRecipe(recipe: Recipe){
+    this.recipes.splice(this.recipes.indexOf(recipe),1);
+    this.recipesChanged();
+
+  }
+
+  private recipesChanged() {
+    console.log('update');
+    if(this.observer){
+      this.observer.next(this.recipes);
+    }
+    this.router.navigate(['/recipes']);
+  }
+
+  constructor(private router: Router) {
     // to cow  create jest callbackiem wiec zostanie wywolane po
     // zakonczeniu dzialania konstruktora
     this.recipesStream = Observable.create(o => {

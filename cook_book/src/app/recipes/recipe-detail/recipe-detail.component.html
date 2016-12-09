@@ -10,8 +10,8 @@
     </div>
     <div class="col-xs-12">
       <button class="btn btn-success" (click)="onAddToShoppingList(selectedRecipe.ingredients)">Do listy zakupów</button>
-      <button class="btn btn-primary">Edycja</button>
-      <button class="btn btn-danger">Usuń</button>
+      <button class="btn btn-primary" [routerLink]="'edit'">Edycja</button>
+      <button class="btn btn-danger" (click)="onDelete()">Usuń</button>
     </div>
   </div>
   <hr>

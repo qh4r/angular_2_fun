@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ShoppingListService} from './shopping-list.service';
+import {ShoppingListService} from '../shopping-list.service';
 import {Ingredient} from "../ingredient";
 @Component({
   selector: 'cb-shopping-list-new',
