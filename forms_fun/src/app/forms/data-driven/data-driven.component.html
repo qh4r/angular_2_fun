@@ -26,12 +26,13 @@
       {{g}}
     </label>
   </div>
-  <div>
+  <div formArrayName="hobbies">
     <h3>Hobby</h3>
-    <div class="form-group">
-      <input type="text" class="form-control">
+    <!-- mozna tez uzywac indexow i wtedy kiedy let i = index -> formControlName='{{i}}'-->
+    <div class="form-group" *ngFor="let hobby of userForm.controls['hobbies'].controls">
+      <input [formControl]="hobby" type="text" class="form-control">
     </div>
   </div>
-  <button class="btn btn-default" type="button">Dodaj pasje</button>
+  <button class="btn btn-default" type="button" (click)="addHobby()" [disabled]="!userForm.controls['hobbies'].controls[userForm.controls['hobbies'].length - 1].value">Dodaj pasje</button>
   <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Potwierdź</button>
 </form>
