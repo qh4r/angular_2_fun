@@ -1,3 +1,37 @@
-<p>
-  data-driven works!
-</p>
+<h1>Data driven</h1>
+ <!-- tutaj przypisujemy deklaracje pol do formualrza -->
+<form [formGroup]="userForm" (ngSubmit)="submit()">
+  <div formGroupName="userData"> <!-- takie samo jak klucz form group zadeklarowany w modelu -->
+    <div class="form-group">
+      <label for="username">Nazwa</label>
+      <!-- formControlName odnosi sie do kluczy pol na obiekcie przekazanym do formGroup -->
+      <input formControlName="username" type="text" id="username" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" type="text" id="email" class="form-control">
+      <!-- zagniezdzone formGroup zmuszaja do uzywania controls wielokrotnie -->
+      <div *ngIf="!userForm.controls['userData'].controls['email'].valid&&userForm.controls['userData'].controls['email'].touched">
+        Niepoprawny format email.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Hasło</label>
+    <input formControlName="password" type="password" id="password" class="form-control">
+  </div>
+  <div class="radio" *ngFor="let g of genders">
+    <label>
+      <input type="radio" formControlName="gender" [value]="g">
+      {{g}}
+    </label>
+  </div>
+  <div>
+    <h3>Hobby</h3>
+    <div class="form-group">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+  <button class="btn btn-default" type="button">Dodaj pasje</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Potwierdź</button>
+</form>
