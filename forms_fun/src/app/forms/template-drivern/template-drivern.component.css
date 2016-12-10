@@ -3,3 +3,6 @@ input.ng-touched.ng-invalid {
   background-color: #ffc8cd;
 }
 
+input.ng-invalid + div {
+  color: crimson;
+}

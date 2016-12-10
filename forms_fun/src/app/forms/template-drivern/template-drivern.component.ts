@@ -7,6 +7,17 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./template-drivern.component.css']
 })
 export class TemplateDrivernComponent implements OnInit {
+  user = {
+    username: 'Rafał',
+    email: '',
+    password:'',
+    gender: 'mężczyzna'
+  };
+
+  gender = [
+    'mężczyzna',
+    'kobieta'
+  ];
 
   constructor() { }
 
@@ -14,7 +25,7 @@ export class TemplateDrivernComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(form, form.valid);
+    console.log(form, form.form.value, form.valid);
   }
 
 }
