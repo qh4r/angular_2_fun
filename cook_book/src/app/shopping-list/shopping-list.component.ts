@@ -8,6 +8,8 @@ import {Subscription} from "rxjs";
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   items: Ingredient[] = [];
+  selectedItem: Ingredient = null;
+
   private shopppingListSubscription : Subscription;
 
   constructor(private shoppingListService: ShoppingListService) {
@@ -18,6 +20,14 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
    this.shopppingListSubscription = this.shoppingListService.itemsChange.subscribe(items => {
       this.items = items;
     })
+  }
+
+  onCleared() {
+    this.selectedItem = null;
+  }
+
+  onSelect(item : Ingredient) {
+    this.selectedItem = item;
   }
 
   ngOnDestroy(): void {

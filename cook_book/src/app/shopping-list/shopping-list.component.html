@@ -1,9 +1,10 @@
 <div class="row">
   <div class="col-xs-12">
-    <cb-shopping-list-new></cb-shopping-list-new>
+    <cb-shopping-list-new [item]="selectedItem" (itemCleared)="onCleared()"></cb-shopping-list-new>
     <hr>
     <ul class="list-group">
-      <a href="#!" class="list-group-item" *ngFor="let item of items" style="...">
+      <!-- javascript: to hack w celu nie przeladowania po kliknieciu pustego linku -->
+      <a href="javascript:" class="list-group-item" (click)="onSelect(item)" *ngFor="let item of items" style="...">
         {{item.name}}
         <span class="pull-right">{{item.amount}}</span>
       </a>

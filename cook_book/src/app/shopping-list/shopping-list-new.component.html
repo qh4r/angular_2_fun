@@ -1,25 +1,28 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="shopping-list-add">
+      <form id="shopping-list-add" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="item-name">Name</label>
-          <input type="text" class="form-control" (input)="onNameChange($event)" [value]="itemName" id="item-name" required>
+          <input type="text" class="form-control" [ngModel]="workingItem.name" name="name" id="item-name" required>
         </div>
 
         <div class="col-sm-2 form-group">
           <label for="item-amount">Amount</label>
-          <input type="text" class="form-control" (input)="onAmountChange($event)" [value]="itemAmount" id="item-amount" required>
+          <input type="text" class="form-control" [ngModel]="workingItem.amount" name="amount" id="item-amount" required>
         </div>
 
         <div class="row">
           <div class="col-xs-12">
-            <button class="btn btn-success" (click)="addIngredient()" type="submit">Add</button>
-            <button class="btn btn-danger" type="button">Delete Item</button>
-            <button class="btn btn-primary" (click)="clearAll()" type="button">Clear</button>
+            <button class="btn btn-success" *ngIf="isAdd" [disabled]="!f.valid" type="submit">Dodaj</button>
+            <button class="btn btn-success" *ngIf="!isAdd" [disabled]="!f.valid" type="submit">Edytuj</button>
+            <button class="btn btn-danger" *ngIf="!isAdd" (click)="onDelete()" type="button">Usuń</button>
+            <button class="btn btn-primary" *ngIf="!isAdd" type="button" (click)="clearItem()">Wyczyść</button>
           </div>
         </div>
       </div>
+      </form>
     </div>
   </div>
 </div>
