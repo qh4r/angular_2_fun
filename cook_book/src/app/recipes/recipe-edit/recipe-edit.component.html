@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form [formGroup]="recipeForm">
       <div class="row">
         <div class="col-xs-12">
           <button class="btn btn-success" type="submit">Zapisz</button>
@@ -11,7 +11,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="name">Tytuł</label>
-            <input type="text" id="name" class="form-control">
+            <input formControlName="name" type="text" id="name" class="form-control">
           </div>
         </div>
       </div>
@@ -19,14 +19,14 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="img-url">Adres obrazka</label>
-            <input type="text" id="img-url" class="form-control">
+            <input #imgUrl formControlName="imagePath" type="text" id="img-url" class="form-control">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="img">
-            <img>
+            <img [src]="imgUrl.value">
           </div>
         </div>
       </div>
@@ -34,17 +34,17 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="content">Zawartość</label>
-            <textarea type="text" rows="6" id="content" class="form-control"></textarea>
+            <textarea type="text" formControlName="description" rows="6" id="content" class="form-control"></textarea>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <ul class="list-group">
-            <div class="row">
-              <div>
-                <div class="col-sm-5"><input type="text" class="form-control"></div>
-                <div class="col-sm-5"><input type="text" class="form-control"></div>
+          <ul formArrayName="ingredients" class="list-group">
+            <div class="row" *ngFor="let ingrediet of recipeForm.controls['ingredients'].controls; let i = index">
+              <div [formGroupName]="i">
+                <div class="col-sm-5"><input formControlName="name" type="text" class="form-control"></div>
+                <div class="col-sm-5"><input formControlName="amount" type="text" class="form-control"></div>
                 <div class="col-sm-2">
                   <button class="btn btn-danger">X</button>
                 </div>
