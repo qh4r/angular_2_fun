@@ -12,12 +12,19 @@ export class RecipesService {
   private observer: Observer<any>;
 
   addRecipe(recipe: Recipe) {
-    this.recipes.push(recipe);
+    this.recipes = [...this.recipes, recipe];
     this.recipesChanged();
+    console.log('new',recipe);
   }
 
   getRecipes() {
     return this.recipes;
+  }
+
+  editRecipe(oldRecipe: Recipe, newRecipe: Recipe) {
+    this.recipes = [...this.recipes.filter(x => x != oldRecipe), newRecipe];
+    console.log('edited',newRecipe);
+    this.recipesChanged();
   }
 
   getRecipe(index: number) : Recipe {

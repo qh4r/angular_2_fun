@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {RecipesService} from "../recipes.service";
 import {Subscription} from "rxjs";
 import {Recipe} from "../recipe-list/recipe";
@@ -21,8 +21,19 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
   recipeForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipesService) {
+  constructor(private route: ActivatedRoute, private recipeService: RecipesService, private router : Router) {
     this.formBuilder = new FormBuilder();
+  }
+
+  onSubmit() {
+    let newRecipe : Recipe = this.recipeForm.value;
+    console.log('submit', newRecipe);
+    if(this.isNew) {
+      this.recipeService.addRecipe(newRecipe);
+    } else {
+      this.recipeService.editRecipe(this.recipe, newRecipe);
+    }
+    this.goBack();
   }
 
   ngOnInit() {
@@ -37,6 +48,21 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       }
     });
     this.initForm();
+  }
+
+  goBack(){
+    this.router.navigate(['../']);
+  }
+
+  onRemoveIngredient(index: number){
+    (<FormArray>this.recipeForm.controls['ingredients']).removeAt(1);
+  }
+
+  onAddIngredient(ingredient: Ingredient){
+    (<FormArray>this.recipeForm.controls['ingredients']).push(new FormGroup({
+      name: new FormControl(ingredient.name, Validators.required),
+      amount: new FormControl(ingredient.amount, [Validators.required, Validators.pattern('\\d+')])
+    }));
   }
 
   ngOnDestroy(): void {
@@ -66,7 +92,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.recipeForm = this.formBuilder.group({
       name: [recipeName, [Validators.required]],
       imagePath: [recipeImgUrl, [Validators.required]],
-      description: [recipeDescription, [Validators.required]],
+      desc: [recipeDescription, [Validators.required]],
       ingredients: recipeIngredients
     });
   }

@@ -7,7 +7,7 @@ import {RecipesService} from './recipes.service';
 @Component({
   selector: 'cb-recipes',
   templateUrl: './recipes.component.html',
-  providers: [RecipesService],
+  // providers: [RecipesService],
 })
 export class RecipesComponent implements OnInit {
 
