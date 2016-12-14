@@ -10,6 +10,8 @@ import {HoverHighlightDirective} from './directives/hover-highlight.directive';
 import {UnlessDirective} from './directives/unless.directive';
 import {ListComponent} from './list/list.component';
 import {InputsComponent} from './inputs/inputs.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { DuplicatePipe } from './pipes/duplicate.pipe';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import {InputsComponent} from './inputs/inputs.component';
     UnlessDirective,
     ListComponent,
     InputsComponent,
+    PipesComponent,
+    DuplicatePipe,
   ],
   imports: [
     BrowserModule,

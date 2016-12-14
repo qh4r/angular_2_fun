@@ -1,0 +1,9 @@
+<h1>Pipes</h1>
+<p>case: {{lowercaseText | uppercase}}</p>
+<p>date: {{date | date:"dd/MMM/yy"}}</p>
+<!--do pipow kolejne arugmenty przekazuje sie po kolejnych dwukropach-->
+<p>slice: {{lowercaseText | slice:5:10 }}</p>
+<!-- pipey mozna kolejkowac -->
+<p>slice + case: {{lowercaseText | slice:5:10 | uppercase }}</p>
+<h2>Custom</h2>
+<p>duplicate: {{lowercaseText | duplicate}}</p>
