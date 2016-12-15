@@ -12,6 +12,7 @@ import {ListComponent} from './list/list.component';
 import {InputsComponent} from './inputs/inputs.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { DuplicatePipe } from './pipes/duplicate.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DuplicatePipe } from './pipes/duplicate.pipe';
     InputsComponent,
     PipesComponent,
     DuplicatePipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

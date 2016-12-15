@@ -7,3 +7,15 @@
 <p>slice + case: {{lowercaseText | slice:5:10 | uppercase }}</p>
 <h2>Custom</h2>
 <p>duplicate: {{lowercaseText | duplicate}}</p>
+<p>filter</p>
+<input [value]="newElem" (input)="onInput($event)" type="text">
+<button (click)="addElem()" class="btn" type="button">Dodaj</button>
+<ul>
+<li *ngFor="let t of tabular | stringFilter:'pies'">
+  {{t}}
+</li>
+</ul>
+
+<h2>Async</h2>
+<p>result: {{asyncVal | async}}</p>
+<button (click)="newPromise()" type="button" class="btn">Next promis</button>
