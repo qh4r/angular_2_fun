@@ -13,6 +13,9 @@ import {InputsComponent} from './inputs/inputs.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { DuplicatePipe } from './pipes/duplicate.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { HomeComponent } from './home.component';
+import { HttpComponent } from './http/http.component';
+import {router} from "./app.router";
 
 
 @NgModule({
@@ -27,11 +30,14 @@ import { FilterPipe } from './pipes/filter.pipe';
     PipesComponent,
     DuplicatePipe,
     FilterPipe,
+    HomeComponent,
+    HttpComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    router
   ],
   providers: [],
   bootstrap: [AppComponent]
