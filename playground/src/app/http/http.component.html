@@ -1,3 +1,19 @@
 <a [routerLink]="['/']" class="btn"><-- Back Home</a>
 <h1>HTTP</h1>
 <p>test: {{test}}</p>
+<p>test {{ '{async pipe}' }}{{asyncTest | async}}</p>
+<button class="btn" (click)="onFetch()">fetch</button>
+<hr>
+<label for="username">Nazwa</label>
+<input type="text" id="username" #username>
+<label for="email">Mail</label>
+<input type="text" id="email" #email>
+<button class="btn" (click)="onSubmit(username.value, email.value)">ślij!</button>
+<hr>
+<button (click)="onGetUsersData()" class="btn">Pobierz listę</button>
+<ul class="collection">
+  <li *ngFor="let user of userData">
+    <h4>{{user.username}}</h4>
+    <p>{{user.email}}</p>
+  </li>
+</ul>
