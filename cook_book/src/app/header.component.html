@@ -13,7 +13,14 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" cbDropdown>
-          <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Użytkownik <span class="caret"></span></a>
+          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Zarządzanie przepisami<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a (click)="onStoreRecipes()">Zapisz</a></li>
+            <li><a (click)="onLoadRecipes()">Załaduj</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" cbDropdown>
+          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Użytkownik <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Login</a></li>
             <li><a href="#">Profil</a></li>

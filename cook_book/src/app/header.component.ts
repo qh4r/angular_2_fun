@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {RecipesService} from "./recipes/recipes.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'cb-header',
@@ -9,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
     } `
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  private recipesStoreSubscription : Subscription;
 
-  constructor() { }
+  ngOnDestroy(): void {
+    this.recipesStoreSubscription.unsubscribe();
+  }
+
+  constructor(private recipesService: RecipesService) { }
+
+  onStoreRecipes(){
+    this.recipesStoreSubscription = this.recipesService.storeRecipes().subscribe(x => console.log('stored!', x));
+  }
+
+  onLoadRecipes(){
+    this.recipesService.fetchRecipes();
+  }
+
+
 
   ngOnInit() {
   }

@@ -3,6 +3,9 @@ import {Recipe} from './recipe-list/recipe';
 import {Observable, Observer} from 'rxjs';
 import {Ingredient} from '../ingredient';
 import {Router} from "@angular/router";
+import {Headers, Http, Response} from "@angular/http";
+
+const recipesUrl = "https://cook-book-33937.firebaseio.com/recipes.json";
 
 @Injectable()
 export class RecipesService {
@@ -45,7 +48,7 @@ export class RecipesService {
     this.router.navigate(['/recipes']);
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: Http) {
     // to cow  create jest callbackiem wiec zostanie wywolane po
     // zakonczeniu dzialania konstruktora
     this.recipesStream = Observable.create(o => {
@@ -62,5 +65,24 @@ export class RecipesService {
       new Ingredient('kurczak', 20),
       new Ingredient('jarmusz', 80)
     ]));
+  }
+
+  storeRecipes(){
+    const body = JSON.stringify(this.recipes);
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.put(recipesUrl, body, {
+      headers
+    });
+  }
+
+  fetchRecipes(){
+    return this.http.get(recipesUrl)
+      .map((response: Response) => response.json())
+      .subscribe((data: Recipe[]) => {
+        this.recipes = data;
+        this.recipesChanged();
+      })
   }
 }
