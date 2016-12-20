@@ -33,7 +33,7 @@ import {router} from "./app.router";
     HomeComponent,
     HttpComponent,
   ],
-  imports: [
+  imports:    [
     BrowserModule,
     FormsModule,
     HttpModule,
